@@ -6,9 +6,14 @@
  * Usage:
  *   SANITY_API_WRITE_TOKEN=... npm run seed
  */
-import "dotenv/config";
+import { config } from "dotenv";
 
 import { createClient, type SanityClient } from "@sanity/client";
+
+// Next.js convention is .env.local, but plain `dotenv/config` only reads
+// .env by default — load .env.local explicitly (falls back to .env).
+config({ path: ".env.local" });
+config();
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production";
