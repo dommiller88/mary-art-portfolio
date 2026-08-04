@@ -171,11 +171,13 @@ gallery feel rather than a slick white-cube one.
   background is the point. `dark:` utility variants on shadcn/ui primitives are scoped to a
   `.dark` ancestor class (`@custom-variant dark` in `globals.css`) that nothing in the app ever
   applies, so a visitor's OS dark-mode setting can't flip the palette either.
-- Typography layers four fonts, each with one job: **Cormorant Garamond** for display headings,
-  **Inter** for body copy, **IBM Plex Mono** for museum-object-label metadata (the `.text-label`
-  utility — eyebrows, nav, filters, captions), and **Caveat** (`.font-hand`) for sparing
-  hand-annotated accents. The handwriting font is intentionally used in only a few places
-  (hero, footer, pinned-photo captions) — never for body copy or UI chrome.
+- Typography is deliberately kept to two real fonts plus one rare accent — an earlier version
+  used a third, monospace typeface for the museum-object-label metadata treatment (`.text-label`)
+  and got feedback that the site felt like it had too many fonts. That treatment now uses **Inter**
+  itself (uppercase, letterspaced, medium weight) rather than a separate typeface. So: **Cormorant
+  Garamond** for display headings, **Inter** for everything else (body copy, UI, and `.text-label`
+  metadata/eyebrows/nav/filters), and **Caveat** (`.font-hand`) for sparing hand-annotated accents
+  only — used in a handful of places (hero, footer, pinned-photo captions), never for body copy.
 - Color is a warm ivory/cream paper palette (very low chroma) so artwork provides all the color,
   plus one deliberate accent — a muted oxblood ink (`--ink` / `text-ink`) — reserved for
   hand-drawn marks: stamps, underlines, marginalia. It's never used as a general UI color.

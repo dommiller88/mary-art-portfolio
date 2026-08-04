@@ -16,7 +16,6 @@
   --color-foreground: var(--foreground);
   --color-ink: var(--ink);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
   --font-hand: var(--font-hand);
   --font-display: var(--font-display);
   --font-heading: var(--font-display);
@@ -133,11 +132,14 @@
     letter-spacing: 0;
   }
 
-  /* Letterspaced monospace caps — stands in for the typed museum object
-     label / exhibition checklist, used for eyebrows, metadata, and nav. */
+  /* Letterspaced caps — stands in for the typed museum object label /
+     exhibition checklist, used for eyebrows, metadata, and nav. Deliberately
+     stays on the body font (Inter) rather than a separate typeface: the
+     site was down to four font families, and this one was used constantly
+     (25 places) rather than as an accent, which read as "too many fonts". */
   .text-label {
-    font-family: var(--font-mono);
     font-size: 0.6875rem;
+    font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     line-height: 1.4;
@@ -172,9 +174,8 @@
      by design — these sit over photos of every tone, so they read as a
      sticker rather than blending (and washing out) against dark images. */
   .stamp {
-    font-family: var(--font-mono);
     font-size: 0.6875rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--ink);

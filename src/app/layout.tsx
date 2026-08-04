@@ -5,7 +5,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { PageTransition } from "@/components/layout/page-transition";
 import { Toaster } from "@/components/ui/sonner";
 import { siteConfig } from "@/lib/constants";
-import { fontDisplay, fontHand, fontMono, fontSans } from "@/lib/fonts";
+import { fontDisplay, fontHand, fontSans } from "@/lib/fonts";
 
 import "./globals.css";
 
@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable} ${fontHand.variable} h-full antialiased`}
+      className={`${fontSans.variable} ${fontDisplay.variable} ${fontHand.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <Navbar />

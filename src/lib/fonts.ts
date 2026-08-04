@@ -1,4 +1,4 @@
-import { Caveat, Cormorant_Garamond, IBM_Plex_Mono, Inter } from "next/font/google";
+import { Caveat, Cormorant_Garamond, Inter } from "next/font/google";
 
 export const fontSans = Inter({
   variable: "--font-sans",
@@ -16,18 +16,6 @@ export const fontDisplay = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
-  display: "swap",
-});
-
-/**
- * IBM Plex Mono — stands in for the typewriter used on museum object labels
- * and exhibition checklists. Drives .text-label (eyebrows, metadata, nav)
- * throughout the site.
- */
-export const fontMono = IBM_Plex_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
   display: "swap",
 });
 
