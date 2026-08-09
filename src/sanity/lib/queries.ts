@@ -46,6 +46,10 @@ export const FEATURED_ARTWORKS_QUERY = defineQuery(
   /* groq */ `*[_type == "artwork" && featured == true] | order(year desc) [0...8] { ${artworkCardFields} }`
 );
 
+export const COMMISSIONED_ARTWORKS_QUERY = defineQuery(
+  /* groq */ `*[_type == "artwork" && commissioned == true] | order(year desc, _createdAt desc) { ${artworkCardFields} }`
+);
+
 export const ARTWORK_BY_SLUG_QUERY = defineQuery(
   /* groq */ `*[_type == "artwork" && slug.current == $slug][0] { ${artworkFields} }`
 );

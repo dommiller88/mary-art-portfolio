@@ -27,6 +27,7 @@ import {
   ARTWORKS_QUERY,
   BIOGRAPHY_QUERY,
   CATEGORIES_QUERY,
+  COMMISSIONED_ARTWORKS_QUERY,
   CV_ENTRIES_QUERY,
   EXHIBITION_BY_SLUG_QUERY,
   EXHIBITION_SLUGS_QUERY,
@@ -71,6 +72,16 @@ export async function getFeaturedArtworks(): Promise<ArtworkSummary[]> {
   return (
     (await sanityFetch<ArtworkSummary[]>({ query: FEATURED_ARTWORKS_QUERY, tags: ["artwork"] })) ??
     []
+  );
+}
+
+export async function getCommissionedArtworks(): Promise<ArtworkSummary[]> {
+  if (isDemoMode) return demoArtworks.filter((artwork) => artwork.commissioned);
+  return (
+    (await sanityFetch<ArtworkSummary[]>({
+      query: COMMISSIONED_ARTWORKS_QUERY,
+      tags: ["artwork"],
+    })) ?? []
   );
 }
 

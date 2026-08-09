@@ -7,7 +7,15 @@ import {
   getNewsSlugs,
 } from "@/sanity/lib/fetchers";
 
-const staticRoutes = ["", "/gallery", "/about", "/exhibitions", "/news", "/contact"];
+const staticRoutes = [
+  "",
+  "/gallery",
+  "/commissions",
+  "/about",
+  "/exhibitions",
+  "/news",
+  "/contact",
+];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [artworkSlugs, exhibitionSlugs, newsSlugs] = await Promise.all([
