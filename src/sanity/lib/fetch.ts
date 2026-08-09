@@ -17,7 +17,7 @@ export async function sanityFetch<QueryResponse>({
 }): Promise<QueryResponse | null> {
   try {
     return await client.fetch<QueryResponse>(query, params, {
-      next: { revalidate: tags ? false : 60, tags },
+      next: { revalidate: 60, tags },
     });
   } catch (error) {
     console.warn("[sanityFetch] query failed:", error);
