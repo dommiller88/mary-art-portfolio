@@ -213,7 +213,8 @@ export const demoExhibitions: Exhibition[] = [
     country: "USA",
     startDate: "2022-06-10",
     endDate: "2022-07-15",
-    coverImage: localImage("/demo/exhibition-cover-3.jpg", "Earlier Works installation view"),
+    // Deliberately no coverImage — exercises the no-cover-image case so it
+    // stays verified that nothing falls back to a placeholder/stock image.
     artworks: [demoArtworks[3]],
   },
 ];
