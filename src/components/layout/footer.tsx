@@ -18,7 +18,6 @@ export async function Footer() {
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             {siteConfig.description}
           </p>
-          <p className="font-hand text-ink mt-4 -rotate-1 text-xl">see you at the opening</p>
         </div>
 
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">

@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 
 import { InstagramIcon } from "@/components/icons/instagram-icon";
 import { ContactForm } from "@/components/shared/contact-form";
-import { NewsletterForm } from "@/components/shared/newsletter-form";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { getBiography } from "@/sanity/lib/fetchers";
 
@@ -46,14 +45,6 @@ export default async function ContactPage() {
                 Instagram
               </a>
             )}
-          </div>
-
-          <div className="mt-16 border-t border-border pt-10">
-            <h2 className="font-display text-lg">Newsletter</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Occasional updates on new work and exhibitions. No spam.
-            </p>
-            <NewsletterForm />
           </div>
         </div>
 

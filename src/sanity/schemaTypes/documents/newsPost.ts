@@ -2,8 +2,12 @@ import { Newspaper } from "lucide-react";
 import { defineField, defineType } from "sanity";
 
 export const newsPostType = defineType({
+  // Internal type name stays "newsPost" (renaming it would require migrating
+  // every existing document's _type) — only the Studio-facing label changes,
+  // so it matches the site's renamed "Blog" section instead of still saying
+  // "News Post" and confusing whoever's editing content.
   name: "newsPost",
-  title: "News Post",
+  title: "Blog Post",
   type: "document",
   icon: Newspaper,
   fields: [

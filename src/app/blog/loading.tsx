@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function NewsLoading() {
+export default function BlogLoading() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-32 lg:px-10">
       <Skeleton className="h-3 w-16" />

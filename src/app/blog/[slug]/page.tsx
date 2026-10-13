@@ -34,7 +34,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function NewsPostPage({
+export default async function BlogPostPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -49,11 +49,11 @@ export default async function NewsPostPage({
   return (
     <div className="mx-auto max-w-3xl px-6 py-32 lg:px-10">
       <Link
-        href="/news"
+        href="/blog"
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
         <ArrowLeft className="size-3.5" />
-        Back to news
+        Back to blog
       </Link>
 
       <AnimatedSection>

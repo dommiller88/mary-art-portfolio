@@ -13,7 +13,7 @@ const staticRoutes = [
   "/commissions",
   "/about",
   "/exhibitions",
-  "/news",
+  "/blog",
   "/contact",
 ];
 
@@ -40,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified,
     })),
     ...newsSlugs.map(({ slug }) => ({
-      url: `${siteConfig.url}/news/${slug}`,
+      url: `${siteConfig.url}/blog/${slug}`,
       lastModified,
     })),
   ];

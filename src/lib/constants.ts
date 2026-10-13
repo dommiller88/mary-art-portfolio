@@ -12,7 +12,7 @@ export const navLinks = [
   { href: "/commissions", label: "Commissions" },
   { href: "/about", label: "About" },
   { href: "/exhibitions", label: "Exhibitions" },
-  { href: "/news", label: "News" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ] as const;
 

@@ -9,16 +9,16 @@ import { getNewsPosts } from "@/sanity/lib/fetchers";
 import { urlForImage } from "@/sanity/lib/image";
 
 export const metadata: Metadata = {
-  title: "News",
-  description: "Latest news, press, and updates.",
+  title: "Blog",
+  description: "Latest posts, press, and updates.",
 };
 
-export default async function NewsPage() {
+export default async function BlogPage() {
   const posts = await getNewsPosts();
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-32 lg:px-10">
-      <SectionHeading eyebrow="News" title="Latest updates" />
+      <SectionHeading eyebrow="Blog" title="Latest posts" />
 
       <div className="mt-16 divide-y divide-border border-t border-border">
         {posts.map((post, index) => {
@@ -27,7 +27,7 @@ export default async function NewsPage() {
           return (
             <AnimatedSection as="section" key={post._id} delay={Math.min(index * 0.05, 0.2)}>
               <Link
-                href={`/news/${post.slug.current}`}
+                href={`/blog/${post.slug.current}`}
                 className="group grid grid-cols-1 gap-4 py-8 sm:grid-cols-[160px_1fr] sm:gap-8"
               >
                 {imageUrl && (
@@ -59,7 +59,7 @@ export default async function NewsPage() {
 
         {posts.length === 0 && (
           <p className="py-16 text-center text-sm text-muted-foreground">
-            News posts will appear here once added in the CMS.
+            Blog posts will appear here once added in the CMS.
           </p>
         )}
       </div>
