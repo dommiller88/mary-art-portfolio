@@ -30,16 +30,6 @@ export default async function HomePage() {
         tagline={biography?.shortBio}
       />
 
-      {biography?.shortBio && (
-        <section className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
-          <AnimatedSection>
-            <p className="font-display text-2xl leading-relaxed italic sm:text-3xl">
-              “{biography.shortBio}”
-            </p>
-          </AnimatedSection>
-        </section>
-      )}
-
       <FeaturedWorks artworks={featuredArtworks} />
 
       <ArtistStatement biography={biography} />

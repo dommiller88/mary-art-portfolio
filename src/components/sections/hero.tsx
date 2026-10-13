@@ -32,11 +32,11 @@ export function Hero({
             welcome to the studio —
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-5">
-            <Button asChild size="lg">
+          <div className="mt-10 flex flex-wrap items-center gap-6">
+            <Button asChild size="lg" className="h-14 gap-2.5 px-8 text-base">
               <Link href="/gallery">
                 View the gallery
-                <ArrowRight className="size-4" />
+                <ArrowRight className="size-5" />
               </Link>
             </Button>
             {artwork && (
