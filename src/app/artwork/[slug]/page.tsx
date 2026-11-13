@@ -14,7 +14,7 @@ import {
   getArtworkBySlug,
   getArtworkSlugs,
 } from "@/sanity/lib/fetchers";
-import { urlForImage } from "@/sanity/lib/image";
+import { getImageDimensions, urlForImage } from "@/sanity/lib/image";
 
 export async function generateStaticParams() {
   const slugs = await getArtworkSlugs();
@@ -53,7 +53,9 @@ export default async function ArtworkDetailPage({
 
   const { previous, next } = await getAdjacentArtworks(artwork._id, artwork.year);
 
-  const mainImageUrl = urlForImage(artwork.mainImage)?.width(1600).height(2000).url();
+  const mainImageUrl = urlForImage(artwork.mainImage)?.width(2000).url();
+  const mainDimensions = getImageDimensions(artwork.mainImage);
+  const aspectRatio = mainDimensions ? mainDimensions.width / mainDimensions.height : 4 / 5;
   const dimensions = formatDimensions(artwork.dimensions);
 
   const additionalImages =
@@ -75,18 +77,24 @@ export default async function ArtworkDetailPage({
       </Link>
 
       <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
-        <AnimatedSection className="tape-corner relative aspect-[4/5] border border-border bg-card p-2">
-          <div className="relative h-full w-full overflow-hidden bg-muted">
-            {mainImageUrl && (
-              <Image
-                src={mainImageUrl}
-                alt={artwork.mainImage?.alt ?? artwork.title}
-                fill
-                priority
-                sizes="(min-width: 1024px) 55vw, 90vw"
-                className="object-cover"
-              />
-            )}
+        <AnimatedSection>
+          {/* Frame width is capped so very tall works still fit within the viewport. */}
+          <div
+            className="tape-corner relative mx-auto border border-border bg-card p-2"
+            style={{ width: `min(100%, calc(80vh * ${aspectRatio} + 1.125rem))` }}
+          >
+            <div className="relative overflow-hidden bg-muted" style={{ aspectRatio }}>
+              {mainImageUrl && (
+                <Image
+                  src={mainImageUrl}
+                  alt={artwork.mainImage?.alt ?? artwork.title}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 55vw, 90vw"
+                  className="object-contain"
+                />
+              )}
+            </div>
           </div>
         </AnimatedSection>
 

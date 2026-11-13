@@ -5,6 +5,7 @@ export interface SanityImage {
   alt?: string;
   caption?: string;
   hotspot?: { x: number; y: number; height: number; width: number };
+  crop?: { top: number; bottom: number; left: number; right: number };
 }
 
 export interface Slug {

@@ -1,7 +1,7 @@
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 
-import { urlForImage } from "@/sanity/lib/image";
+import { getImageDimensions, urlForImage } from "@/sanity/lib/image";
 import type { SanityImage } from "@/types";
 import type { PortableTextBlock } from "@portabletext/types";
 
@@ -34,9 +34,22 @@ const components: PortableTextComponents = {
     image: ({ value }: { value: SanityImage }) => {
       const url = urlForImage(value)?.width(1600).url();
       if (!url) return null;
+      const dimensions = getImageDimensions(value) ?? { width: 3, height: 2 };
       return (
-        <span className="relative my-8 block aspect-[3/2] w-full overflow-hidden bg-muted">
-          <Image src={url} alt={value.alt ?? ""} fill className="object-cover" />
+        <span
+          className="relative mx-auto my-8 block overflow-hidden bg-muted"
+          style={{
+            aspectRatio: dimensions.width / dimensions.height,
+            width: `min(100%, calc(80vh * ${dimensions.width / dimensions.height}))`,
+          }}
+        >
+          <Image
+            src={url}
+            alt={value.alt ?? ""}
+            fill
+            sizes="(min-width: 768px) 700px, 90vw"
+            className="object-contain"
+          />
         </span>
       );
     },
